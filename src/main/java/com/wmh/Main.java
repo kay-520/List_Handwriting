@@ -22,7 +22,7 @@ public class Main {
             System.out.println("第"+(i+1)+"个元素："+myList.get(i));
         }
         System.out.println("---------测试删除元素---------");
-        myList.remove(1);
+        myList.removeIndex(1);
         for (int i=0;i<myList.size();i++){
             System.out.println("第"+(i+1)+"个元素："+myList.get(i));
         }
@@ -37,7 +37,7 @@ public class Main {
             System.out.println("第"+(i+1)+"个元素："+myLinkedList.get(i));
         }
         System.out.println("---------测试删除元素---------");
-        myLinkedList.remove(1);
+        myLinkedList.removeIndex(1);
         for (int i=0;i<myLinkedList.size();i++){
             System.out.println("第"+(i+1)+"个元素："+myLinkedList.get(i));
         }

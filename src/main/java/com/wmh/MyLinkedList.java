@@ -20,15 +20,25 @@ public class MyLinkedList<E> implements MyList<E> {
         return size;
     }
 
+
+
+
+
     /***
      * 根据index删除元素
      * @param index
      * @return
      */
-    public E remove(int index) {
+    @Override
+    public void removeIndex(int index) {
         //判断下标是否越界
         checkElementIndex(index);
-        return unlink(node(index));
+        unlink(node(index));
+    }
+
+    @Override
+    public void remove(E e) {
+
     }
 
     E unlink(Node<E> x) {

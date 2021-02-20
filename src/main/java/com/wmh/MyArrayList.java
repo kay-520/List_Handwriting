@@ -33,6 +33,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     /**
      * 获取数组长度大小
+     *
      * @return
      */
     public int size() {
@@ -43,15 +44,13 @@ public class MyArrayList<E> implements MyList<E> {
      * 1.根据下标删除元素  将当前数组下标之后的元素前移一位，并且将最后一个元素置空
      * 2.根据value删除，时间复杂度为On，遍历数组获取value对应的下标值，再进行删除。
      * modCount++ 是为了防止在多线程情况下，当一个线程在进行遍历时，另一个线程在对数据进行删除、添加操作，modCount值发生改变，然后遍历时就会抛出异常。
+     *
      * @param index
-     * @return
      */
-    public E remove(int index) {
+    public void removeIndex(int index) {
         //判断是否越界
         rangeCheck(index);
         modCount++;
-        //获取到当前的下标的元素
-        E oldValue = elementData(index);
         // 获取一共要移动的次数 即删除某一元素，后面的元素依次向前移动
         int numMoved = size - index - 1;
         if (numMoved > 0)
@@ -59,7 +58,26 @@ public class MyArrayList<E> implements MyList<E> {
                     numMoved);
         //给最后一个元素赋值null，即删除
         elementData[--size] = null;
-        return oldValue;
+    }
+
+    /***
+     * 根据内容删除
+     * @param e
+     */
+    public void remove(E e) {
+        for (int i = 0; i < elementData.length; i++) {
+            if (elementData[i].equals(e)) {
+                removeIndex(i);
+//                int numMoved = size - i - 1;
+//                if (numMoved > 0) {
+//                    System.arraycopy(elementData, i + 1, elementData, i, numMoved);
+//                    elementData[--size] = null;
+//                }
+            }
+
+        }
+
+
     }
 
     /**

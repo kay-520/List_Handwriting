@@ -11,7 +11,12 @@ import java.util.Collection;
  **/
 public interface MyList<E> {
     int size();
-    public E remove(int index);
+
+    void removeIndex(int index);
+
+    void remove(E e);
+
     boolean add(E e);
+
     E get(int index);
 }
